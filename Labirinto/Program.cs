@@ -27,7 +27,7 @@ class Labirinto
         {
             for (int j = 0; j < limit; j++)
             {
-                meuLab[i, j] = random.Next(4) == 1 ? '|' : '.';
+                meuLab[i, j] = random.Next(4) == 1 ? '|' : ' ';
             }
         }
 
@@ -51,32 +51,8 @@ class Labirinto
 
         do
         {
-            meuLab[i, j] = 'v';
-            if (meuLab[i, j + 1] == '.')
-            {
-                pilha.Push(i);
-                pilha.Push(j);
-                j++;
-            }
-            else if (meuLab[i + 1, j] == '.')
-            {
-                pilha.Push(i);
-                pilha.Push(j);
-                i++;
-            }
-            else if (meuLab[i, j - 1] == '.')
-            {
-                pilha.Push(i);
-                pilha.Push(j);
-                j--;
-            }
-            else if (meuLab[i - 1, j] == '.')
-            {
-                pilha.Push(i);
-                pilha.Push(j);
-                i--;
-            }
-            else if (meuLab[i + 1, j] == 'Q')
+            meuLab[i, j] = '$';
+            if (meuLab[i + 1, j] == 'Q')
             {
                 Console.WriteLine("Queijo encontrado!");
                 break;
@@ -95,6 +71,30 @@ class Labirinto
             {
                 Console.WriteLine("Queijo encontrado!");
                 break;
+            }
+            else if (meuLab[i, j + 1] == ' ')
+            {
+                pilha.Push(i);
+                pilha.Push(j);
+                j++;
+            }
+            else if (meuLab[i + 1, j] == ' ')
+            {
+                pilha.Push(i);
+                pilha.Push(j);
+                i++;
+            }
+            else if (meuLab[i, j - 1] == ' ')
+            {
+                pilha.Push(i);
+                pilha.Push(j);
+                j--;
+            }
+            else if (meuLab[i - 1, j] == ' ')
+            {
+                pilha.Push(i);
+                pilha.Push(j);
+                i--;
             }
             else if (pilha.Count > 0)
             {
