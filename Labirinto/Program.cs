@@ -98,6 +98,7 @@ class Labirinto
             }
             else if (pilha.Count > 0)
             {
+                meuLab[i, j] = 'o';
                 j = pilha.Pop();
                 i = pilha.Pop();
             }
